@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "i18n.js",
+  "sourceRoot": "../src/",
+  "sources": [
+    "i18n.coffee"
+  ],
+  "names": [],
+  "mappings": "AAEA;AAAA,EAAA,MAAM,CAAC,OAAP,GACE;AAAA;AAAA;;OAAA;AAAA,IAGA,wBAAA,EAA2B,yCAH3B;AAAA,IAIA,sBAAA,EAAwB,sFAJxB;AAAA,IAKA,kBAAA,EAAoB,8CALpB;AAAA,IAOA,wBAAA,EAA0B,iEAP1B;AAAA,IAQA,4BAAA,EAA8B,qEAR9B;AAAA,IAUA,cAAA,EAAgB,gBAVhB;AAAA,IAWA,qBAAA,EAAuB,4CAXvB;GADF,CAAA;AAAA"
+}
