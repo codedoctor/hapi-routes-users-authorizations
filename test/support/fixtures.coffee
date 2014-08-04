@@ -14,6 +14,8 @@ module.exports =
     key : "this is a long key"
     v1 : "01234"
     v2 : "56789"
+    profile: 
+      x : 'tesrt'
     providerType : "XXX"
     username : "test"
     displayName : "Test User"

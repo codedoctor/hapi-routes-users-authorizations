@@ -45,15 +45,17 @@ module.exports = (plugin,options = {}) ->
         return reply err if err
         return fnRaise404(request,reply) unless user
 
-        item.identities ||= []
+        user.identities ||= []
         baseUrl = "#{options.baseUrl}/users/#{user._id}/authorizations"
 
         result =
-          items: _.map( item.identities, (x) -> helperObjToRest.identity(x,baseUrl)  )
-          totalCount: (item.identities).length
-          requestCount: (item.identities).length
+          items: _.map( user.identities, (x) -> helperObjToRest.identity(x,baseUrl)  )
+          totalCount: user.identities.length
+          requestCount: user.identities.length
           requestOffset: 0 
+        reply result
 
+  
   plugin.route
     path: "/users/{usernameOrIdOrMe}/authorizations"
     method: "POST"
@@ -70,11 +72,14 @@ module.exports = (plugin,options = {}) ->
         return fnRaise404(request,reply) unless user
 
         provider = request.payload.provider
-        accessToken = request.payload.accessToken
-        refreshToken = request.payload.refreshToken
+        v1 = request.payload.v1
+        v2 = request.payload.v2
         profile = request.payload.profile || {}
 
-        methodsUsers().addIdentityToUser user._id, provider,accessToken, refreshToken, profile,  (err,user,identity) =>
+        ###
+        @TODO This does not work as expected.
+        ###
+        methodsUsers().addIdentityToUser user._id, provider,v1, v2, profile,null,  (err,user,identity) =>
           return reply err if err
 
           baseUrl = "#{options.baseUrl}/users/#{user._id}/authorizations"
