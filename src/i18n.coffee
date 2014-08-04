@@ -1,5 +1,7 @@
 
-
+###
+Human readable messages used in the plugin.
+###
 module.exports = 
   ###
   Do not translate
