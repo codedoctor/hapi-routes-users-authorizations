@@ -7,14 +7,17 @@ i18n = require './i18n'
 validationSchemas = require './validation-schemas'
 
 module.exports = (plugin,options = {}) ->
-  Hoek.assert options.accountId, i18n.optionsAccountIdRequired
+  Hoek.assert options._tenantId, i18n.optionsAccountIdRequired
   Hoek.assert options.baseUrl,i18n.optionsBaseUrlRequired
 
-  hapiIdentityStore = -> plugin.plugins['hapi-identity-store']
-  Hoek.assert hapiIdentityStore(),i18n.couldNotFindPlugin
+  hapiOauthStoreMultiTenant = -> plugin.plugins['hapi-oauth-store-multi-tenant']
+  Hoek.assert hapiOauthStoreMultiTenant(),i18n.couldNotFindPluginOauth
 
-  methodsUsers = -> hapiIdentityStore().methods.users
-  methodsOauthAuth = -> hapiIdentityStore().methods.oauthAuth
+  hapiUserStoreMultiTenant = -> plugin.plugins['hapi-user-store-multi-tenant']
+  Hoek.assert hapiUserStoreMultiTenant(),i18n.couldNotFindPluginUser
+
+  methodsUsers = -> hapiUserStoreMultiTenant().methods.users
+  methodsOauthAuth = -> hapiOauthStoreMultiTenant().methods.oauthAuth
 
   Hoek.assert methodsUsers(),i18n.couldNotFindMethodsUsers
   Hoek.assert methodsOauthAuth(), i18n.couldNotFindMethodsOauthAuth 
@@ -41,7 +44,7 @@ module.exports = (plugin,options = {}) ->
       usernameOrIdOrMe = fbUsernameFromRequest request
       return reply Boom.unauthorized(i18n.authorizationRequired) unless usernameOrIdOrMe
 
-      methodsUsers().getByNameOrId options.accountId, usernameOrIdOrMe,null,  (err,user) ->
+      methodsUsers().getByNameOrId options._tenantId, usernameOrIdOrMe,null,  (err,user) ->
         return reply err if err
         return fnRaise404(request,reply) unless user
 
@@ -67,7 +70,7 @@ module.exports = (plugin,options = {}) ->
       usernameOrIdOrMe = fbUsernameFromRequest request
       return reply Boom.unauthorized(i18n.authorizationRequired) unless usernameOrIdOrMe
 
-      methodsUsers().getByNameOrId options.accountId, usernameOrIdOrMe,null,  (err,user) ->
+      methodsUsers().getByNameOrId options._tenantId, usernameOrIdOrMe,null,  (err,user) ->
         return reply err if err
         return fnRaise404(request,reply) unless user
 
@@ -96,7 +99,7 @@ module.exports = (plugin,options = {}) ->
       usernameOrIdOrMe = fbUsernameFromRequest request
       return reply Boom.unauthorized(i18n.authorizationRequired) unless usernameOrIdOrMe
 
-      methodsUsers().getByNameOrId options.accountId, usernameOrIdOrMe,null,  (err,user) ->
+      methodsUsers().getByNameOrId options._tenantId, usernameOrIdOrMe,null,  (err,user) ->
         return reply err if err
         return reply().code(204) unless user # no user -> deleted
 

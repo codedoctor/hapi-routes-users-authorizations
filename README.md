@@ -13,23 +13,26 @@ Provides API endpoints for HAPI servers to manage users.
 
 ## Dependencies
 
-* Requires HAPI >= 6.0.0 and hapi-identity-store
+* Requires HAPI >= 6.0.0 and hapi-oauth-store-multi-tenant
 
 
 ## See also
 
 * [hapi-auth-bearer-mw](https://github.com/codedoctor/hapi-auth-bearer-mw)
-* [hapi-identity-store](https://github.com/codedoctor/hapi-identity-store)
+* [hapi-oauth-store-multi-tenant](https://github.com/codedoctor/hapi-oauth-store-multi-tenant)
 * [hapi-mongoose-db-connector](https://github.com/codedoctor/hapi-mongoose-db-connector)
 * [hapi-routes-authorization-and-session-management](https://github.com/codedoctor/hapi-routes-authorization-and-session-management)
+* [hapi-routes-roles](https://github.com/codedoctor/hapi-routes-roles)
 * [hapi-routes-status](https://github.com/codedoctor/hapi-routes-status)
-* [hapi-routes-users](https://github.com/codedoctor/hapi-routes-users)
 * [hapi-routes-users-authorizations](https://github.com/codedoctor/hapi-routes-users-authorizations)
+* [hapi-routes-oauth-management](https://github.com/codedoctor/hapi-routes-oauth-management)
+* [hapi-routes-users](https://github.com/codedoctor/hapi-routes-users)
 
 and additionally
 
 * [mongoose-identity-store-multi-tenant](https://github.com/codedoctor/mongoose-identity-store-multi-tenant)
 * [mongoose-rest-helper](https://github.com/codedoctor/mongoose-rest-helper)
+* [api-pagination](https://github.com/codedoctor/api-pagination)
 
 
 ## Contributing

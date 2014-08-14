@@ -34,7 +34,6 @@ describe 'USER IN DB', ->
       
             cb null
 
-    ###
     describe 'POST /users/.../authorizations', ->
       describe 'with an existing user and a valid payload', ->
         it 'should return a 201', (cb) ->
@@ -50,8 +49,7 @@ describe 'USER IN DB', ->
             console.log JSON.stringify(result)
 
             cb null
-    ###
-    
+
     describe 'DELETE /users/.../authorizations/...', ->
       describe 'with an existing user but non existing authorization', ->
         it 'should return a 204', (cb) ->
