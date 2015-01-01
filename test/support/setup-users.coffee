@@ -7,7 +7,7 @@ module.exports = (server,cb) ->
     email: fixtures.user1.email
     name: fixtures.user1.name
 
-  methods = server.pack.plugins['hapi-user-store-multi-tenant'].methods
+  methods = server.plugins['hapi-user-store-multi-tenant'].methods
   methods.users.create fixtures._tenantId,data,null, (err,user,token) ->
     return cb err if err
     fixtures.user1.id = user._id

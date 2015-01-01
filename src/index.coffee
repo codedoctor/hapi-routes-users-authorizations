@@ -11,15 +11,15 @@ options:
 ``realm: ignore for now
   scope: leave to null
 ###
-module.exports.register = (plugin, options = {}, cb) ->
+module.exports.register = (server, options = {}, cb) ->
 
   defaults =
     realm: "default"
   options = Hoek.applyToDefaults defaults, options
 
-  routes plugin,options
+  routes server,options
 
-  plugin.expose 'i18n',i18n
+  server.expose 'i18n',i18n
 
   cb()
 

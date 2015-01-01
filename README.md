@@ -4,7 +4,7 @@
 [![Dependency Status](https://gemnasium.com/codedoctor/hapi-routes-users-authorizations.svg)](https://gemnasium.com/codedoctor/hapi-routes-users-authorizations)
 [![NPM Downloads](http://img.shields.io/npm/dm/hapi-routes-users-authorizations.svg)](https://www.npmjs.org/package/hapi-routes-users-authorizations)
 [![Issues](http://img.shields.io/github/issues/codedoctor/hapi-routes-users-authorizations.svg)](https://github.com/codedoctor/hapi-routes-users-authorizations/issues)
-[![HAPI 6.0](http://img.shields.io/badge/hapi-6.0-blue.svg)](http://hapijs.com)
+[![HAPI 8.0](http://img.shields.io/badge/hapi-8.0-blue.svg)](http://hapijs.com)
 [![API Documentation](http://img.shields.io/badge/API-Documentation-ff69b4.svg)](http://coffeedoc.info/github/codedoctor/hapi-routes-users-authorizations)
 
 (C) 2014 Martin Wawrusch
@@ -13,7 +13,7 @@ Provides API endpoints for HAPI servers to manage users.
 
 ## Dependencies
 
-* Requires HAPI >= 6.0.0 and hapi-oauth-store-multi-tenant
+* Requires HAPI >= 8.0.0,hapi-oauth-store-multi-tenant and hapi-user-store-multi-tenant
 
 
 ## See also
