@@ -82,7 +82,7 @@ module.exports = (plugin,options = {}) ->
         ###
         @TODO This does not work as expected.
         ###
-        methodsUsers().addIdentityToUser user._id, provider,v1, v2, profile,null,  (err,user,identity) =>
+        methodsUsers().addIdentityToUser user._id, provider,v1, v2, profile,null,  (err,user,identity) ->
           return reply err if err
 
           baseUrl = "#{options.baseUrl}/users/#{user._id}/authorizations"
